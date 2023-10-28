@@ -4,6 +4,8 @@ This Anki add-on allows you to organize notetype fields into custom groups such 
 
 ![screenshot](images/shot1.png)
 
+You can define your field groups in the config under _Tools > Add-ons > Config_.
+
 ## Download
 
 You can download the add-on from AnkiWeb: [666404032](https://ankiweb.net/shared/info/666404032)
