@@ -1,5 +1,6 @@
 {
-    "homepage": "https://github.com/abdnh/anki-addon-template",
+    "ankiweb_id": "666404032",
+    "homepage": "https://github.com/abdnh/anki-field-groups",
     "min_point_version": 50,
     "name": "Field Groups",
     "package": "field_groups"
