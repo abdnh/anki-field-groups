@@ -1,6 +1,8 @@
 # Field Groups
 
-TODO
+This Anki add-on allows you to organize notetype fields into custom groups such that only the chosen group of fields is shown in the editor at a time. This is useful if you have notetypes with dozens of fields for some reason.
+
+![screenshot](images/shot1.png)
 
 ## Changelog
 
