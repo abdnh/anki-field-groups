@@ -23,6 +23,9 @@ function onFieldGroupChanged() {
     const fields = selectedOption.value.split(":");
     const fieldElements = document.querySelector(".fields").children;
     for (let i = 0; i < fieldElements.length; i++) {
+        if (!fieldElements[i].dataset.fieldName) {
+            continue;
+        }
         if (!fields.includes(fieldElements[i].dataset.fieldName)) {
             fieldElements[i].style.display = "none";
         } else {
