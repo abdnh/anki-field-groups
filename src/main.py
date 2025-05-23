@@ -17,7 +17,7 @@ from .field_groups import field_groups_for_notetype
 WIDGET_HTML = """
 <div id="field-groups-widget">
 <label for="field-groups">Field group:</label>
-<select id="field-groups" oninput="onFieldGroupChanged()">
+<select id="field-groups">
 <option>test</option>
 </select>
 </div>
@@ -26,6 +26,7 @@ WIDGET_HTML = """
 
 def add_editor_widget(buttons: list[str], editor: Editor) -> None:
     buttons.append(WIDGET_HTML)
+    editor.web.eval("attachFieldGroupsEventListeners()")
 
 
 def inject_editor_styles(web_content: WebContent, context: object | None) -> None:
