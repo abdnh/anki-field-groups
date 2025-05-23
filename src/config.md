@@ -1,1 +1,2 @@
-Specify your field groups for each notetype as in the default config for the Basic notetype.
+-   `report_errors`: Report add-on errors automatically.
+-   `field_groups`: Specify your field groups for each notetype as in the default config for the Basic notetype.

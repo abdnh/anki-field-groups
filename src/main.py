@@ -6,12 +6,12 @@ import sys
 
 from aqt import gui_hooks, mw
 from aqt.editor import Editor
-from aqt.qt import *
 from aqt.webview import WebContent
 
 sys.path.append(os.path.join(os.path.dirname(__file__), "vendor"))
 
 from .consts import consts
+from .errors import setup_error_handler
 from .field_groups import field_groups_for_notetype
 
 WIDGET_HTML = """
@@ -45,12 +45,13 @@ def load_field_groups(editor: Editor) -> None:
     field_groups.update(field_groups_for_notetype(notetype["name"]))
     field_group_list = [{"name": k, "fields": v} for k, v in field_groups.items()]
     editor.web.eval(
-        "setTimeout(() => updateFieldGroups(%s, %s), 100)"
-        % (json.dumps(field_names), json.dumps(field_group_list))
+        f"setTimeout(() => updateFieldGroups({json.dumps(field_names)}, {json.dumps(field_group_list)}), 100)"
     )
 
 
-gui_hooks.editor_did_init_buttons.append(add_editor_widget)
-gui_hooks.webview_will_set_content.append(inject_editor_styles)
-gui_hooks.editor_did_load_note.append(load_field_groups)
-mw.addonManager.setWebExports(__name__, r"web/.*")
+def init() -> None:
+    setup_error_handler()
+    gui_hooks.editor_did_init_buttons.append(add_editor_widget)
+    gui_hooks.webview_will_set_content.append(inject_editor_styles)
+    gui_hooks.editor_did_load_note.append(load_field_groups)
+    mw.addonManager.setWebExports(__name__, r"web/.*")

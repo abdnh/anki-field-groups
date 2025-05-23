@@ -1,8 +1,9 @@
 {
     "field_groups": {
         "Basic": {
-            "F": ["Front"],
-            "B": ["Back"]
+            "B": ["Back"],
+            "F": ["Front"]
         }
-    }
+    },
+    "report_errors": true
 }
